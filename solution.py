@@ -22,7 +22,6 @@ def webServer(port=13331):
            #print filename,'||',filename[1:]
            f = open(filename[1:])
            outputdata = f.read()
-           #print (outputdata)
            #Send one HTTP header line into socket
            #Fill in start
            connectionSocket.send(bytes("HTTP/1.1 200 OK\n\n","UTF-8"))
@@ -37,7 +36,7 @@ def webServer(port=13331):
            #Send response message for file not found (404)
            #Fill in start
            #connectionSocket.send(bytes("<html><head></head><body><h1>404 Not Found</h1></body></html>\r\n","UTF-8"))
-           connectionSocket.send(bytes("HTTP/1.1 404 not Found", "UTF-8"))
+           connectionSocket.send(bytes("HTTP/1.1 404 Not Found\n\n","UTF-8"))
            connectionSocket.close()
 
 
