@@ -9,7 +9,7 @@ def webServer(port=13331):
    #Fill in start
    serverSocket.bind(('',port))
    serverSocket.listen(1)
-   print('the wer server is up on port:',port)
+   #print('the wer server is up on port:',port)
    #Fill in end
 
    while True:
@@ -27,8 +27,6 @@ def webServer(port=13331):
            #Fill in start
            connectionSocket.send(bytes("HTTP/1.1 200 OK\n\n","UTF-8"))
            #connectionSocket.send(bytes(outputdata,"UTF-8"))
-           #Fill in end
-            #http://192.168.86.73:13331/helloworld.html
            #Send the content of the requested file to the client
            for i in range(0, len(outputdata)):
                connectionSocket.send(outputdata[i].encode())
@@ -41,12 +39,7 @@ def webServer(port=13331):
            #connectionSocket.send(bytes("<html><head></head><body><h1>404 Not Found</h1></body></html>\r\n","UTF-8"))
            connectionSocket.send(bytes("HTTP/1.1 404 not Found", "UTF-8"))
            connectionSocket.close()
-           #Fill in end
 
-           #Close client socket
-           #Fill in start
-
-           #Fill in end
 
    serverSocket.close()
    sys.exit()  # Terminate the program after sending the corresponding data
