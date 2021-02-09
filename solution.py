@@ -14,7 +14,7 @@ def webServer(port=13331):
 
    while True:
        #Establish the connection
-       print('Ready to serve...')
+      # print('Ready to serve...')
        connectionSocket, addr = serverSocket.accept()
        try:
            message = connectionSocket.recv(1024)
@@ -25,7 +25,6 @@ def webServer(port=13331):
            #Send one HTTP header line into socket
            #Fill in start
            connectionSocket.send(bytes("HTTP/1.1 200 OK\n\n","UTF-8"))
-           #connectionSocket.send(bytes(outputdata,"UTF-8"))
            #Send the content of the requested file to the client
            for i in range(0, len(outputdata)):
                connectionSocket.send(outputdata[i].encode())
