@@ -1,7 +1,7 @@
 from socket import *
 
 
-def smtp_client(port=25, mailserver='smtp.nyu.edu'):
+def smtp_client(port=1025, mailserver='127.0.0.1'):
     msg = "\r\n My message"
     endmsg = "\r\n.\r\n"
     mserver = (mailserver,port)
@@ -89,10 +89,10 @@ def smtp_client(port=25, mailserver='smtp.nyu.edu'):
     # Fill in start
     clientSocket.send("Quit\r\n".encode())
     recv7 = clientSocket.recv(1024).decode()
-   # print("After Quit command:" + recv7)
+   # print("After Quit command:" + recv7) smtp.nyu.edu
     clientSocket.close()
     # Fill in end
 
 
 if __name__ == '__main__':
-    smtp_client(25, 'smtp.nyu.edu')
+    smtp_client(1025, '127.0.0.1')
